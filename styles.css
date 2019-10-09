@@ -1,0 +1,19 @@
+.program {
+  display: flex;
+}
+
+.program span {
+  padding: 1em;
+  background-color: firebrick;
+  border: 1px solid yellow;
+}
+
+.program span.active {
+  background-color: #F44336;
+}
+
+@media screen and (max-width: 768px) {
+  .program {
+    flex-direction: column;
+  }
+}
