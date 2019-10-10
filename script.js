@@ -4,7 +4,7 @@ let programElements = [...document.querySelectorAll(".program span")]
 function markCurrentTime() {
   let currentTime = song.currentTime
   if(!currentTime) return;
-  programElements
+  let element = programElements
     .map(
       element => { element.classList.remove("active"); return element; }
     )
@@ -13,8 +13,17 @@ function markCurrentTime() {
         element.getAttribute("data-start") < currentTime &&
         element.getAttribute("data-end") > currentTime
     )
+
+  element
     .classList
     .toggle("active")
+
+  let endTime = element.getAttribute("data-end");
+  let totalTime = endTime - element.getAttribute("data-start");
+  let percentsPassed = ((endTime - currentTime) / totalTime)*100;
+  element
+    .style
+    .setProperty('--p', 100 - percentsPassed + '%');
 }
 
 setInterval(() => markCurrentTime(), 1000);

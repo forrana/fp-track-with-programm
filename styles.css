@@ -10,6 +10,7 @@
 
 .program span.active {
   background-color: #F44336;
+  background-image: linear-gradient(to right,firebrick 0%,firebrick var(--p,50%), #F44336 0%);
 }
 
 @media screen and (max-width: 768px) {
